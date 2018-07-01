@@ -55,8 +55,8 @@ class GameState():
         self.binary = self._binary()
         self.id = self._convertStateToId()
         self.allowedActions = self._allowedActions()
-        self.isEndGame = self._checkForEndGame()
-        self.value = self._getValue()
+        # self.isEndGame = self._checkForEndGame()
+        self.value = (0, 0, 0) # 只有需要计算时再计算
         self.score = self._getScore()
 
     def _allowedActions(self):
@@ -134,13 +134,14 @@ class GameState():
         # 这个后手还是x，即到这步时，必须是 self.playerTurn  == 1
         # assert self.playerTurn  == 1
         if xScore> oScore:
-            return (1, xScore, oScore)
+            self.value = (1, xScore, oScore)
         elif xScore == oScore: 
-            return (0, xScore, oScore)
+            self.value = (0, xScore, oScore)
         else:
-            return (-1, xScore, oScore)
+            self.value =  (-1, xScore, oScore)
             
-
+        return self.value
+    
     def _getScore(self):
         tmp = self.value
         return (tmp[1], tmp[2])
@@ -155,8 +156,8 @@ class GameState():
         value = 0
         done = 0
 
-        if newState.isEndGame:
-            value = newState.value[0]
+        if newState._checkForEndGame():
+            value = newState._getValue()[0]
             done = 1
 
         return (newState, value, done) 
