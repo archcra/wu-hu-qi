@@ -39,9 +39,9 @@ class GameState():
     FOUR_POS= [[5,11,17,23], [1,7,13,19], [3,7,11,15], [9,13,17,21]]
     THREE_POS=[[2,6,10], [2,8,14], [10,16,22],[14,18,22]]
     MINI_SQUARE=[[0,1,5,6], [1,2,6,7], [2,3,7,8], [3,4,8,9],[5,6,10,11], [6,7,11,12], [7,8,12,13],[8,9,13,14],
-                 [10,11,15,16], [11,12,16,17], [12,13,17,18], [13,14,18,19], [14,15,19,20],[15,16,20,21], [17,18,22,23], [18,19,23,24]]
+                 [10,11,15,16], [11,12,16,17], [12,13,17,18], [13,14,18,19], [15,16,20,21],  [16,17,21,22],[17,18,22,23], [18,19,23,24]]
     
-    SCORE_CATEGORY = {1: {'POS': MINI_SQUARE, 'SIZE': 1, 'SCORE': 1}, 
+    SCORE_CATEGORY = {1: {'POS': MINI_SQUARE, 'SIZE': 4, 'SCORE': 1}, 
                       3: {'POS': THREE_POS, 'SIZE': 3, 'SCORE': 3} ,
                       4: {'POS': FOUR_POS, 'SIZE': 4, 'SCORE': 4} ,
                       5: {'POS': FIVE_POS, 'SIZE': 5, 'SCORE': 5} 
@@ -74,6 +74,7 @@ class GameState():
         position = np.append(currentplayer_position,other_position)
 
         return (position)
+            
 
     def _convertStateToId(self):
         player1_position = np.zeros(len(self.board), dtype=np.int)
@@ -96,6 +97,7 @@ class GameState():
 
     def getScore(self, scoreCategory, piece):
         count = 0
+        #import pdb; pdb.set_trace()
         posList = GameState.SCORE_CATEGORY[scoreCategory]['POS']
         size = GameState.SCORE_CATEGORY[scoreCategory]['SIZE']
         score = GameState.SCORE_CATEGORY[scoreCategory]['SCORE']
@@ -131,16 +133,16 @@ class GameState():
         xScore = xFive + xFour + xThree + xSquare
         oScore = oFive + oFour + oThree + oSquare
         
-        # 这个后手还是x，即到这步时，必须是 self.playerTurn  == 1
-        # assert self.playerTurn  == 1
-        if xScore> oScore:
-            self.value = (1, xScore, oScore)
+        # 这个最后一手是x，即走满盘时，轮o走；即到这步时，是必须是 self.playerTurn  == -1
+        assert self.playerTurn  == -1
+        if xScore > oScore:
+            self.value = (-1, oScore, xScore)
         elif xScore == oScore: 
-            self.value = (0, xScore, oScore)
+            self.value = (0, oScore, xScore)
         else:
-            self.value =  (-1, xScore, oScore)
+            self.value =  (1, oScore, xScore)
             
-        return self.value
+        return self.value # 这个分数，永远是o玩家眼里的分数
     
     def _getScore(self):
         tmp = self.value
@@ -163,9 +165,7 @@ class GameState():
         return (newState, value, done) 
 
 
-
-
-    def render(self, logger):
+    def render(self):
         for r in range(5):
-            logger.info([self.pieces[str(x)] for x in self.board[5*r : (5*r + 5)]])
-        logger.info('--------------')
+            print ([self.pieces[str(x)] for x in self.board[5*r : (5*r + 5)]])
+            # logger.info('--------------') 

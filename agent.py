@@ -56,13 +56,9 @@ class Agent():
 	
 	def simulate(self):
 
-		#lg.logger_mcts.info('ROOT NODE...%s', self.mcts.root.state.id)
-		#self.mcts.root.state.render(lg.logger_mcts)
-		#lg.logger_mcts.info('CURRENT PLAYER...%d', self.mcts.root.state.playerTurn)
 
 		##### MOVE THE LEAF NODE
 		leaf, value, done, breadcrumbs = self.mcts.moveToLeaf()
-		#leaf.state.render(lg.logger_mcts)
 
 		##### EVALUATE THE LEAF NODE
 		value, breadcrumbs = self.evaluateLeaf(leaf, value, done, breadcrumbs)
@@ -169,8 +165,6 @@ class Agent():
 		return action, value
 
 	def replay(self, ltmemory):
-		#lg.logger_mcts.info('******RETRAINING MODEL******')
-
 
 		for i in range(config.TRAINING_LOOPS):
 			minibatch = random.sample(ltmemory, min(config.BATCH_SIZE, len(ltmemory)))
@@ -180,7 +174,6 @@ class Agent():
 								, 'policy_head': np.array([row['AV'] for row in minibatch])} 
 
 			fit = self.model.fit(training_states, training_targets, epochs=config.EPOCHS, verbose=1, validation_split=0, batch_size = 32)
-			#lg.logger_mcts.info('NEW LOSS %s', fit.history)
 
 			self.train_overall_loss.append(round(fit.history['loss'][config.EPOCHS - 1],4))
 			self.train_value_loss.append(round(fit.history['value_head_loss'][config.EPOCHS - 1],4)) 
