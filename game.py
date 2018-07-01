@@ -60,9 +60,7 @@ class GameState():
         self.score = self._getScore()
 
     def _allowedActions(self):
-        # allowed = []
         allowed = [i for i, e in enumerate(self.board) if e == 0]
-        # print ('now allowed are: ', allowed)
         return allowed
 
     def _binary(self):
@@ -108,34 +106,6 @@ class GameState():
                 
         return count*score
     
-    '''
-    def findFour(scoreCategory, piece):
-        count = 0
-        posCategory = 
-        for pos in GameState.FOUR_POS:
-            if ''.join(self.board[pos]) == piece * 4:
-                count = count + 1
-                
-        return count*4
-    
-    def findThree(scoreCategory, piece):
-        count = 0
-        posCategory = 
-        for pos in GameState.THREE_POS:
-            if ''.join(self.board[pos]) == piece * 3:
-                count = count + 1
-                
-        return count*3
-    
-    def findMiniSquare(scoreCategory, piece):
-        count = 0
-        posCategory = 
-        for pos in GameState.MINI_SQUARE:
-            if ''.join(self.board[pos]) == piece * 4:
-                count = count + 1
-                
-        return count*1
-    '''
     
     def _getValue(self):
         # This is the value of the state for the current player
@@ -171,7 +141,6 @@ class GameState():
             return (-1, xScore, oScore)
             
 
-
     def _getScore(self):
         tmp = self.value
         return (tmp[1], tmp[2])
@@ -196,6 +165,6 @@ class GameState():
 
 
     def render(self, logger):
-        for r in range(6):
-            logger.info([self.pieces[str(x)] for x in self.board[7*r : (7*r + 7)]])
+        for r in range(5):
+            logger.info([self.pieces[str(x)] for x in self.board[5*r : (5*r + 5)]])
         logger.info('--------------')
