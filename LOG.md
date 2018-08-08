@@ -1,6 +1,285 @@
 
 
 
+# 20180726
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 7, 'drawn': 13, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 7, 'drawn': 13, 'nsp': 0}
+
+
+
+ITERATION NUMBER 201
+BEST PLAYER VERSION 428
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 1, 'drawn': 19, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 1, 'drawn': 19, 'nsp': 0}
+
+
+
+ITERATION NUMBER 206
+BEST PLAYER VERSION 429
+
+
+
+# 20180723
+
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 0, 'drawn': 20, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 0, 'drawn': 20, 'nsp': 0}
+
+
+
+ITERATION NUMBER 647
+BEST PLAYER VERSION 377
+
+
+ubuntu@gd-1:~/docker/wu-hu-qi/run/logs$ grep EPISODE logger_main.log | wc -l
+41160
+在自对弈大于4万多盘时，kernel dead.
+
+
+##
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 1, 'drawn': 19, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 1, 'drawn': 19, 'nsp': 0}
+
+
+
+ITERATION NUMBER 650
+BEST PLAYER VERSION 377
+
+问题：是不稳定，还是先手必胜？
+
+
+
+
+# 20180721
+
+
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 1, 'drawn': 17, 'current_player': 2}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 1, 'drawn': 17, 'nsp': 2}
+
+
+
+ITERATION NUMBER 416
+BEST PLAYER VERSION 304
+
+看来，还是没到终点。
+
+
+
+
+=====
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 3, 'drawn': 9, 'current_player': 8}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 11, 'drawn': 9, 'nsp': 0}
+
+
+
+ITERATION NUMBER 457
+BEST PLAYER VERSION 324
+
+好像先手必胜？
+
+
+# 20180720
+
+
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 0, 'drawn': 20, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 0, 'drawn': 20, 'nsp': 0}
+
+ITERATION NUMBER 302
+BEST PLAYER VERSION 262
+
+
+这个在262版本时，全是和棋。应该是到终点了。
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 0, 'drawn': 9, 'current_player': 11}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 11, 'drawn': 9, 'nsp': 0}
+
+
+
+ITERATION NUMBER 304
+BEST PLAYER VERSION 263
+
+出现转折：　在263版本时，先手胜了11盘。
+
+
+ITERATION NUMBER 304
+BEST PLAYER VERSION 263
+SELF PLAYING 60 EPISODES...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+
+RETRAINING...
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.8247 - value_head_loss: 0.1894 - policy_head_loss: 1.3867
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.8040 - value_head_loss: 0.2149 - policy_head_loss: 1.3199
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.8259 - value_head_loss: 0.1938 - policy_head_loss: 1.3849
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.8541 - value_head_loss: 0.1833 - policy_head_loss: 1.4517
+
+
+
+
+
+# 20180718
+
+
+
+RETRAINING...
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.9470 - value_head_loss: 0.2832 - policy_head_loss: 1.4945
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.9582 - value_head_loss: 0.2494 - policy_head_loss: 1.5508
+Epoch 1/1
+512/512 [==============================] - 5s 9ms/step - loss: 0.9538 - value_head_loss: 0.2639 - policy_head_loss: 1.5275
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 0.9773 - value_head_loss: 0.2977 - policy_head_loss: 1.5407
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 2, 'drawn': 18, 'current_player': 0}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 0, 'drawn': 18, 'nsp': 2}
+
+
+
+ITERATION NUMBER 71
+BEST PLAYER VERSION 165
+
+
+...
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 4, 'drawn': 14, 'current_player': 2}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 6, 'drawn': 14, 'nsp': 0}
+
+好像只有先手可能赢；而且，和棋好像多。
+
+
+
+
+# 第三次记录
+@qing
+https://github.com/archcra/wu-hu-qi.git
+
+
+
+启动：
+cat tensor-flow-20180310 | docker load
+
+docker run -ti --name alpha-xerox -e GRANT_SUDO=yes --user root -p 8899:8888 -v "$PWD":/home/jovyan/work jupyter/tensorflow-notebook
+
+http://www.maizedna.cn:8899/
+
+
+INITIAL_RUN_NUMBER = 4
+INITIAL_MODEL_VERSION = 134
+INITIAL_MEMORY_VERSION =  60
+
+
+in container shell:
+```
+apt-get update
+apt-get install python-pydot python-pydot-ng graphviz
+pip install --upgrade pip
+pip install pydot graphviz
+
+restart the container:
+
+docker stop alpha-xerox
+docker start alpha-xerox
+```
+
+
+
+
+
+
+TOURNAMENT...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+SCORES
+{'best_player': 5, 'drawn': 7, 'current_player': 8}
+
+STARTING PLAYER / NON-STARTING PLAYER SCORES
+{'sp': 4, 'drawn': 7, 'nsp': 9}
+
+ITERATION NUMBER 4
+BEST PLAYER VERSION 137
+SELF PLAYING 60 EPISODES...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+
+RETRAINING...
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 1.0196 - value_head_loss: 0.3112 - policy_head_loss: 1.6005
+Epoch 1/1
+512/512 [==============================] - 5s 9ms/step - loss: 1.0638 - value_head_loss: 0.2978 - policy_head_loss: 1.7024
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 1.0620 - value_head_loss: 0.3420 - policy_head_loss: 1.6546
+Epoch 1/1
+512/512 [==============================] - 5s 9ms/step - loss: 1.0015 - value_head_loss: 0.3215 - policy_head_loss: 1.5540
+Epoch 1/1
+512/512 [==============================] - 5s 10ms/step - loss: 1.0291 - value_head_loss: 0.2751 - policy_head_loss: 1.6557
+Epoch 1/1
+
+
+# 以往　
+
 用时：
 2018-07-01 11:23:53,094 INFO EPISODE 1 OF 30
 2018-07-01 15:04:33,325 INFO EPISODE 9 OF 30
